@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Category from "./Category";
 import ItemDetail from "./ItemDetail";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             />
             <Route path="/:id" element={<ItemDetail />} />
           </Routes>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

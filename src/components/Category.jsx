@@ -1,4 +1,4 @@
-import Carousel from "./Carousel";
+import ItemList from "./ItemList";
 
 function Category(props) {
   return (
@@ -6,7 +6,7 @@ function Category(props) {
       <div className={props.class}>
         <div className="presentationBox">
           <h1 className="titleBox"> {props.type} </h1>
-          <Carousel category={props.class} />
+          <ItemList category={props.class} />
         </div>
       </div>
     </div>

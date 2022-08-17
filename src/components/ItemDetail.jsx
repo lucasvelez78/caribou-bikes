@@ -18,7 +18,7 @@ function ItemDetail() {
         <div className="itemView-description">
           <h1>{bikeDetail.reference}</h1>
           <p>{bikeDetail.description}</p>
-          <p className="stock">{`There are ${bikeDetail.stock} in stock`}</p>
+          <p className="stock">{`We have ${bikeDetail.stock} in stock`}</p>
           <h1>{`$${bikeDetail.price}`}</h1>
         </div>
         <div className="itemView-quantity">

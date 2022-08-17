@@ -13,6 +13,10 @@
   height: 45px;
 }
 
+.cartIcon {
+  width: 30px;
+}
+
 #nav-fluid {
   padding: 0 6rem;
   letter-spacing: 1px;
@@ -139,7 +143,7 @@
 /* Carousel & Card */
 
 .carousel {
-  width: 70%;
+  width: 80%;
   margin: 0 auto 0;
 }
 
@@ -150,7 +154,7 @@
 
 .card {
   text-align: left;
-  left: 40px;
+  left: 10px;
 }
 
 .card-text {
@@ -178,10 +182,10 @@
 
 .btnCounter {
   margin: 4% 0;
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   border: none;
-  background-color: #ef5b0c;
+  background-color: #bcbbbb;
   color: white;
   border-radius: 50%;
 }
@@ -232,4 +236,37 @@
   background-color: #ef5b0c;
   border: #ef5b0c;
   color: white;
+}
+
+/* Footer */
+
+footer {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100vw;
+  padding-top: 20px;
+  background-color: #9f9d9d;
+  font-family: "Lato", sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.socials {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials img {
+  width: 30px;
+  margin: 0 10px;
+  cursor: pointer;
 }

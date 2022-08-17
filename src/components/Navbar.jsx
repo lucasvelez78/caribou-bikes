@@ -70,8 +70,8 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Pricing
+              <Link className="nav-link" to="/cart">
+                <img className="cartIcon" src="images/cart.png"></img>
               </Link>
             </li>
           </ul>
