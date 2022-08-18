@@ -1,11 +1,19 @@
 import bicycles from "../bicycles";
 import Counter from "./Counter";
 import { useParams, Link } from "react-router-dom";
+import { useContext } from "react";
+import { cartContext } from "../store/cartContext";
 
 function ItemDetail() {
   const bikeId = useParams().id;
 
   const bikeDetail = bicycles.find((bicycle) => bicycle.id == bikeId);
+
+  const { addToCart } = useContext(cartContext);
+
+  function handleAdd(quantity) {
+    addToCart(bikeDetail, quantity);
+  }
 
   return (
     <div className="itemView">
@@ -22,11 +30,8 @@ function ItemDetail() {
           <h1>{`$${bikeDetail.price}`}</h1>
         </div>
         <div className="itemView-quantity">
-          <Counter inventory={bikeDetail.stock} />
+          <Counter inventory={bikeDetail.stock} onAdd={handleAdd} />
         </div>
-        <Link to="/cart" className="btn btn-light" id="btnAddToCart">
-          Add to cart
-        </Link>
       </div>
     </div>
   );

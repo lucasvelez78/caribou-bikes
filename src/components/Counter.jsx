@@ -15,15 +15,27 @@ function Counter(props) {
   }
 
   return (
-    <div className="counter">
-      <button onClick={decrease} className="btnCounter">
-        {" "}
-        -{" "}
-      </button>
-      <h4 className="counterVisual"> {count} </h4>
-      <button onClick={count < stock ? increase : null} className="btnCounter">
-        {" "}
-        +{" "}
+    <div>
+      <div className="counter">
+        <button onClick={decrease} className="btnCounter">
+          {" "}
+          -{" "}
+        </button>
+        <h4 className="counterVisual"> {count} </h4>
+        <button
+          onClick={count < stock ? increase : null}
+          className="btnCounter"
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
+      <button
+        className="btn btn-light"
+        onClick={props.onAdd(count)}
+        id="btnAddToCart"
+      >
+        Add to cart
       </button>
     </div>
   );
