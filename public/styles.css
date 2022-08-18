@@ -209,6 +209,7 @@
   border: #ef5b0c;
   color: white;
   padding: 8px 12px;
+  margin-top: 10px;
 }
 
 /* ItemDetail */
@@ -242,6 +243,10 @@
 
 .itemView-description p {
   margin: 15px 0;
+}
+
+.priceItemDetail {
+  margin-bottom: 46px;
 }
 
 .stock {

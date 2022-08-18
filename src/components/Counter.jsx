@@ -30,11 +30,7 @@ function Counter(props) {
           +{" "}
         </button>
       </div>
-      <button
-        className="btn btn-light"
-        onClick={props.onAdd(count)}
-        id="btnAddToCart"
-      >
+      <button onClick={() => props.onAdd(count)} id="btnAddToCart">
         Add to cart
       </button>
     </div>

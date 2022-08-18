@@ -27,7 +27,7 @@ function ItemDetail() {
           <h1>{bikeDetail.reference}</h1>
           <p>{bikeDetail.description}</p>
           <p className="stock">{`We have ${bikeDetail.stock} in stock`}</p>
-          <h1>{`$${bikeDetail.price}`}</h1>
+          <h1 className="priceItemDetail">{`$${bikeDetail.price}`}</h1>
         </div>
         <div className="itemView-quantity">
           <Counter inventory={bikeDetail.stock} onAdd={handleAdd} />
