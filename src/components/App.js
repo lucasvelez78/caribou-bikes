@@ -5,6 +5,8 @@ import Category from "./Category";
 import ItemDetail from "./ItemDetail";
 import Footer from "./Footer";
 import { CartProvider } from "../store/cartContext";
+import ShoppingCart from "../pages/ShoppingCart";
+import Login from "../pages/Login";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
                 element={<Category class="ebike" type="e-Bike" />}
               />
               <Route path="/:id" element={<ItemDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cart" element={<ShoppingCart />} />
             </Routes>
             <Footer />
           </div>

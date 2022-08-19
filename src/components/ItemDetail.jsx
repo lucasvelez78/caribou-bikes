@@ -11,8 +11,8 @@ function ItemDetail() {
 
   const { addToCart } = useContext(cartContext);
 
-  function handleAdd(quantity) {
-    addToCart(bikeDetail, quantity);
+  function handleAdd(count) {
+    addToCart(bikeDetail, count);
   }
 
   return (

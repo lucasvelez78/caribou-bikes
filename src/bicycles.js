@@ -117,6 +117,46 @@ const bicycles = [
     stock: 1,
     price: 7000,
   },
+  {
+    id: 13,
+    reference: "Linus E6100",
+    description:
+      "Minimal elegance with the power to take you further. Features a large display, enabled with wireless communication to connect with applications.",
+    pic: "images/linus.jpeg",
+    category: "ebike",
+    stock: 3,
+    price: 3400,
+  },
+  {
+    id: 14,
+    reference: "Cowboy C3",
+    description:
+      "Find the fastest way to move in the city as the bike adapts intuitively to power the speed you need.",
+    pic: "images/cowboy.png",
+    category: "ebike",
+    stock: 2,
+    price: 2600,
+  },
+  {
+    id: 15,
+    reference: "Giant Revolt Advanced",
+    description:
+      "Fast gravel, rough gravel, pavement or dirt. However you choose to roll, this bike does it all.",
+    pic: "images/giant.jpeg",
+    category: "gravel",
+    stock: 4,
+    price: 4000,
+  },
+  {
+    id: 16,
+    reference: "Bedford 8",
+    description:
+      "A relaxed, smooth ride. Perfect for urban commuting. External 8-speed drivetrain.",
+    pic: "images/bedford.jpeg",
+    category: "urban",
+    stock: 3,
+    price: 600,
+  },
 ];
 
 export default bicycles;

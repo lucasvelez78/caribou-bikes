@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
+import { cartContext, createContext } from "../store/cartContext";
 
 function Navbar() {
+  const { cart } = useContext(cartContext);
+  let quantityInCart = 0;
+  cart.map((item) => {
+    quantityInCart += item.quantity;
+  });
+
   return (
     <nav className="navbar navbar-expand-lg bg-light fixed-top">
       <div className="container-fluid container" id="nav-fluid">
@@ -60,12 +67,12 @@ function Navbar() {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="#">
+              <Link className="nav-link" aria-current="page" to="/contact">
                 Contact
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">
+              <Link className="nav-link" to="/login">
                 Log in
               </Link>
             </li>
@@ -74,6 +81,9 @@ function Navbar() {
                 <img className="cartIcon" src="images/cart.png"></img>
               </Link>
             </li>
+            <div className="itemsInCart">
+              {quantityInCart === 0 ? null : quantityInCart}
+            </div>
           </ul>
         </div>
       </div>

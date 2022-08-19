@@ -5,9 +5,14 @@ export const cartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function addToCart(item, quantity) {
+  function addToCart(item, count) {
     console.log("ok");
-    console.log(item, quantity);
+    // console.log(item, count);
+
+    let copyCart = [...cart];
+    copyCart.push({ ...item, quantity: count });
+    setCart(copyCart);
+    console.log(cart);
   }
 
   return (
