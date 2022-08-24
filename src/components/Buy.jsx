@@ -14,9 +14,12 @@ function Buy(props) {
   function handleDecrease() {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      cart = cart.map((item) =>
+        item.id == ID ? { ...item, quantity: quantity } : item
+      );
     }
-    const itemToUpdate = cart.find((item) => item.id === ID);
-    updateCart(itemToUpdate, quantity);
+    // const itemToUpdate = cart.find((item) => item.id === ID);
+    // updateCart(itemToUpdate, quantity);
   }
 
   function handleIncrease() {
