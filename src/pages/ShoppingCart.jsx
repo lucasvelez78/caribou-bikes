@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { cartContext } from "../store/cartContext";
 import Buy from "../components/Buy";
 
 function ShoppingCart() {
-  const { cart } = useContext(cartContext);
+  const { cart, addToCart } = useContext(cartContext);
   function createBuy(element) {
     return (
       <Buy
@@ -17,6 +18,7 @@ function ShoppingCart() {
       />
     );
   }
+
   let quantityInCart = 0;
   let totalCost = 0;
   cart.map((item) => {
@@ -30,9 +32,9 @@ function ShoppingCart() {
         <div className="itemsList">
           <h2 className="itemsListTitle">ShoppingCart</h2>
           <div>{cart.map(createBuy)}</div>
-          <a className="backToShop" href="/">
-            <p>← Back to shop</p>
-          </a>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <p className="backToShop">← Back to shop</p>
+          </Link>
         </div>
         <div className="summary">
           <h5>Summary</h5>

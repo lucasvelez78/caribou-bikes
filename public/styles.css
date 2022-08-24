@@ -360,8 +360,8 @@ footer {
 }
 
 .itemInCartChild {
-  margin: 0 50px;
-  width: 100%;
+  margin: 0 30px;
+  width: 70px;
   display: flex;
 }
 
@@ -380,7 +380,7 @@ footer {
 }
 
 .lastItemInCartChild {
-  margin-right: 0;
+  margin-right: 20px;
 }
 
 .delete {
@@ -388,7 +388,7 @@ footer {
   cursor: pointer;
 }
 .summary {
-  background-color: #9f9d9d;
+  background-color: #b9b7b7;
   width: 30%;
   padding: 20px;
   position: relative;
@@ -419,7 +419,7 @@ footer {
 }
 
 #checkoutBtn {
-  background-color: black;
+  background-color: #3ccf4e;
   color: white;
   border-radius: 4px;
   left: 20px;

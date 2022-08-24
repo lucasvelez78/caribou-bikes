@@ -18,18 +18,8 @@ export function CartProvider({ children }) {
     setCart(newCart);
   }
 
-  function updateCart(newItem, qty) {
-    setCart(
-      cart.map((item) =>
-        item.id == newItem.id ? { ...newItem, quantity: qty } : item
-      )
-    );
-  }
-
   return (
-    <cartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateCart }}
-    >
+    <cartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </cartContext.Provider>
   );
