@@ -8,10 +8,12 @@ function ShoppingCart() {
     return (
       <Buy
         key={element.id}
+        id={element.id}
         image={element.pic}
         reference={element.reference}
         price={element.price}
         quantity={element.quantity}
+        stock={element.stock}
       />
     );
   }

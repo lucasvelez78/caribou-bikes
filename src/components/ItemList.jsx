@@ -2,48 +2,27 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
 import Card from "./Card";
 import bicycles from "../bicycles";
 
 function ItemList(props) {
-  function NextArrow(props) {
-    const { className, style, onClick } = props;
+  function NextArrow({ onClick }) {
     return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "#003865",
-          borderRadius: "30%",
-          position: "absolute",
-          transform: "none",
-          color: "#003865",
-          content: ">",
-          paddingTop: "2px",
-        }}
-        onClick={onClick}
-      />
+      <div className="arrow arrow-right" onClick={onClick}>
+        <MdOutlineArrowForwardIos />
+      </div>
     );
   }
 
-  function PrevArrow(props) {
-    const { className, style, onClick } = props;
+  function PrevArrow({ onClick }) {
     return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          background: "#003865",
-          borderRadius: "30%",
-          position: "absolute",
-          transform: "none",
-          color: "#003865",
-          content: "<",
-          paddingTop: "2px",
-        }}
-        onClick={onClick}
-      />
+      <div className="arrow arrow-left" onClick={onClick}>
+        <MdOutlineArrowBackIos />
+      </div>
     );
   }
 
@@ -60,7 +39,7 @@ function ItemList(props) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 2,
           infinite: false,
           dots: true,
