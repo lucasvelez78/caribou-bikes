@@ -6,9 +6,20 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   function addToCart(item, count) {
-    let copyCart = [...cart];
-    copyCart.push({ ...item, quantity: count });
-    setCart(copyCart);
+    const exist = cart.find((element) => element.id == item.id);
+    if (exist) {
+      setCart(
+        cart.map((element) =>
+          element.id == item.id
+            ? { ...exist, quantity: exist.quantity + count }
+            : element
+        )
+      );
+    } else {
+      let copyCart = [...cart];
+      copyCart.push({ ...item, quantity: count });
+      setCart(copyCart);
+    }
   }
 
   function removeFromCart(item) {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,9 +7,28 @@ import {
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
 import Card from "./Card";
-import bicycles from "../bicycles";
+import firestoreDB from "../services/firebase";
+import { getDocs, collection } from "firebase/firestore";
+
+function getProducts() {
+  return new Promise((resolve) => {
+    const bicyclesCollection = collection(firestoreDB, "bicycles");
+    getDocs(bicyclesCollection).then((snapshot) => {
+      const docsData = snapshot.docs.map((doc) => doc.data());
+      resolve(docsData);
+    });
+  });
+}
 
 function ItemList(props) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getProducts().then((res) => {
+      setData(res);
+    });
+  }, []);
+
   function NextArrow({ onClick }) {
     return (
       <div className="arrow arrow-right" onClick={onClick}>
@@ -82,7 +101,7 @@ function ItemList(props) {
 
   return (
     <div className="carousel">
-      <Slider {...settings}>{bicycles.map(createItem)}</Slider>
+      <Slider {...settings}>{data.map(createItem)}</Slider>
     </div>
   );
 }
