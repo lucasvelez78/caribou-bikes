@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../store/cartContext";
 import Buy from "../components/Buy";
+import UserForm from "../components/UserForm";
 
 function ShoppingCart() {
-  const { cart, addToCart } = useContext(cartContext);
+  const { cart } = useContext(cartContext);
+  const [activeForm, setActiveForm] = useState(false);
+
   function createBuy(element) {
     return (
       <Buy
@@ -25,6 +28,10 @@ function ShoppingCart() {
     quantityInCart += item.quantity;
     totalCost = totalCost + item.quantity * item.price;
   });
+
+  function handleClick() {
+    setActiveForm(true);
+  }
 
   return (
     <div className="shoppingCart">
@@ -52,12 +59,17 @@ function ShoppingCart() {
             <div className="costSummary totalPrice"> ${totalCost + 20} </div>
           </div>
           <div className="checkOutBoxBtn">
-            <button className="btn" id="checkoutBtn">
-              checkout
+            <button className="btn" id="checkoutBtn" onClick={handleClick}>
+              Buy
             </button>
           </div>
         </div>
       </div>
+      {activeForm && (
+        <div className="user-form">
+          <UserForm cart={cart} total={totalCost + 20} />
+        </div>
+      )}
     </div>
   );
 }

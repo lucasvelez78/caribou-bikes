@@ -1,29 +1,29 @@
 import Counter from "./Counter";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { cartContext } from "../store/cartContext";
 import firestoreDB from "../services/firebase";
-import { collection, doc, getDoc, get } from "firebase/firestore";
-
-function getProductById(id) {
-  return new Promise((resolve) => {
-    const bicyclesCollectionRef = collection(firestoreDB, "bicycles");
-    const docRef = doc(bicyclesCollectionRef, id);
-    getDoc(docRef).then((snapshot) => {
-      resolve({ ...snapshot.data(), id: snapshot.id });
-    });
-  });
-}
+import { collection, getDocs } from "firebase/firestore";
 
 function ItemDetail() {
   const [data, setData] = useState({});
   const bikeId = useParams().id;
 
-  const { addToCart } = useContext(cartContext);
+  const { cart, addToCart } = useContext(cartContext);
+
+  function getProducts() {
+    return new Promise((resolve) => {
+      const bicyclesCollection = collection(firestoreDB, "bicycles");
+      getDocs(bicyclesCollection).then((snapshot) => {
+        const docsData = snapshot.docs.map((doc) => doc.data());
+        resolve(docsData);
+      });
+    });
+  }
 
   useEffect(() => {
-    getProductById(bikeId).then((res) => {
-      setData(res);
+    getProducts().then((res) => {
+      setData(res.find((doc) => doc.id == bikeId));
     });
   }, []);
 
@@ -48,6 +48,14 @@ function ItemDetail() {
         <div className="itemView-quantity">
           <Counter inventory={data.stock} onAdd={handleAdd} />
         </div>
+        {cart.length > 0 ? (
+          <div className="go-to-cart">
+            <Link to="/cart" style={{ textDecoration: "none" }}>
+              {" "}
+              Go to cart{" "}
+            </Link>
+          </div>
+        ) : null}
       </div>
     </div>
   );
