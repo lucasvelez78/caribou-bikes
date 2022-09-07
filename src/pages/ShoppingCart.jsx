@@ -67,7 +67,7 @@ function ShoppingCart() {
       </div>
       {activeForm && (
         <div className="user-form">
-          <UserForm cart={cart} total={totalCost + 20} />
+          <UserForm inCart={cart} total={totalCost + 20} />
         </div>
       )}
     </div>

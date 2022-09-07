@@ -1,24 +1,36 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import firestoreDB from "../services/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { orderContext } from "../store/orderContext";
+import { cartContext } from "../store/cartContext";
 
-function UserForm({ cart, total }) {
+function UserForm({ inCart, total }) {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     phone: "",
+    address: "",
   });
 
   const purchaseOrder = {
     buyer: { ...userData },
-    items: [...cart],
+    items: [...inCart],
     total: total,
+    date: new Date(),
   };
+
+  let navigate = useNavigate();
+  const { loadOrderId } = useContext(orderContext);
+  const { clearCart } = useContext(cartContext);
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     const collectionRef = collection(firestoreDB, "purchaseOrders");
     const docRef = await addDoc(collectionRef, purchaseOrder);
+    loadOrderId(docRef.id);
+    navigate("/success");
+    clearCart();
   }
 
   function handleChange(evt) {
@@ -32,7 +44,7 @@ function UserForm({ cart, total }) {
     <form onSubmit={handleSubmit}>
       <div className="form-row" id="firstRow">
         <div className="form-group col-md-6" id="buyerName">
-          <label forHtml="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             name="name"
             value={userData.name}
@@ -44,7 +56,7 @@ function UserForm({ cart, total }) {
           />
         </div>
         <div className="form-group col-md-6">
-          <label forHtml="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             name="email"
             value={userData.email}
@@ -57,7 +69,7 @@ function UserForm({ cart, total }) {
         </div>
       </div>
       <div className="form-group">
-        <label forHtml="phone">Phone</label>
+        <label htmlFor="phone">Phone</label>
         <input
           name="phone"
           value={userData.phone}
@@ -69,29 +81,17 @@ function UserForm({ cart, total }) {
         />
       </div>
       <div className="form-group">
-        <label forHtml="address">Address</label>
+        <label htmlFor="address">Address</label>
         <input
           name="address"
+          value={userData.address}
+          onChange={handleChange}
           type="text"
           className="form-control"
           id="inputAddress2"
           placeholder="1234 Main St"
         />
       </div>
-      {/* <div className="form-row" id="locationRow">
-        <div className="form-group col-md-6" id="inputCity">
-          <label forHtml="inputCity">City</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="form-group col-md-4" id="inputCountry">
-          <label forHtml="inputCity">Country</label>
-          <input type="text" className="form-control" />
-        </div>
-        <div className="form-group col-md-2">
-          <label forHtml="inputZip">Zip</label>
-          <input type="text" className="form-control" id="inputZip" />
-        </div>
-      </div> */}
       <button type="submit" className="btn" id="formButton">
         Checkout
       </button>

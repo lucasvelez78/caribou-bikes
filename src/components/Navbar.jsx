@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { cartContext, createContext } from "../store/cartContext";
+import { cartContext } from "../store/cartContext";
+import { logContext } from "../store/logContext";
 
 function Navbar() {
+  const { log, user } = useContext(logContext);
   const { cart } = useContext(cartContext);
   let quantityInCart = 0;
   cart.map((item) => {
@@ -71,11 +73,18 @@ function Navbar() {
                 Contact
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Log in
-              </Link>
+
+            <li className="nav-item" id="name-logged">
+              {" "}
+              {!log ? (
+                <Link className="nav-link" to="/login">
+                  Log in
+                </Link>
+              ) : (
+                <div className="name-logged">{user.email}</div>
+              )}
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 <img className="cartIcon" src="images/cart.png"></img>
