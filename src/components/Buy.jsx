@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { cartContext } from "../store/cartContext";
 
 function Buy(props) {
-  const [quantity, setQuantity] = useState(props.quantity);
+  const [quantity] = useState(props.quantity);
   let subtotal = props.price * quantity;
   let ID = props.id;
   const { cart, removeFromCart } = useContext(cartContext);
@@ -13,7 +13,7 @@ function Buy(props) {
 
   return (
     <div className="itemInCart">
-      <img src={props.image}></img>
+      <img src={props.image} alt="bicycle"></img>
       <p className="itemInCartChild">{props.reference}</p>
       <div className="itemInCartChild">
         <p>{quantity}</p>

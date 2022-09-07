@@ -1,6 +1,3 @@
-import Card from "../components/Card";
-import bicycles from "../bicycles";
-
 function Home() {
   return (
     <div>

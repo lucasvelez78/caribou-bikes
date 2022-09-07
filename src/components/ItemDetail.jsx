@@ -23,7 +23,7 @@ function ItemDetail() {
 
   useEffect(() => {
     getProducts().then((res) => {
-      setData(res.find((doc) => doc.id == bikeId));
+      setData(res.find((doc) => doc.id === bikeId));
     });
   }, []);
 

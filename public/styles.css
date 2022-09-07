@@ -61,7 +61,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 900px;
+  height: 800px;
   position: relative;
   color: black;
   padding-top: 10rem;
@@ -73,7 +73,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 900px;
+  height: 800px;
   position: relative;
   color: black;
   padding-top: 10rem;
@@ -97,7 +97,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 900px;
+  height: 800px;
   position: relative;
   color: black;
   padding-top: 10rem;
@@ -109,7 +109,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 900px;
+  height: 800px;
   position: relative;
   color: black;
   padding-top: 10rem;
@@ -315,7 +315,6 @@ footer {
   padding-top: 20px;
   background: rgba(91, 91, 93, 0.3);
   font-family: "Lato", sans-serif;
-  position: fixed;
   bottom: 0;
 }
 
@@ -481,7 +480,7 @@ footer {
   margin: auto;
   padding: 80px 0;
   text-align: center;
-  height: 800px;
+  height: 650px;
 }
 
 .loginContainer h1 {
@@ -627,7 +626,7 @@ footer {
   margin: auto;
   padding: 110px 0;
   text-align: center;
-  height: 900px;
+  height: 700px;
 }
 
 .contact-header {
@@ -732,7 +731,7 @@ textarea {
     flex-direction: column;
     background-color: #efefef;
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 0;
   }
 
   .itemView-left {

@@ -6,11 +6,11 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   function addToCart(item, count) {
-    const exist = cart.find((element) => element.id == item.id);
+    const exist = cart.find((element) => element.id === item.id);
     if (exist) {
       setCart(
         cart.map((element) =>
-          element.id == item.id
+          element.id === item.id
             ? { ...exist, quantity: exist.quantity + count }
             : element
         )

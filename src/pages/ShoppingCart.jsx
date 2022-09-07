@@ -24,7 +24,7 @@ function ShoppingCart() {
 
   let quantityInCart = 0;
   let totalCost = 0;
-  cart.map((item) => {
+  cart.forEach((item) => {
     quantityInCart += item.quantity;
     totalCost = totalCost + item.quantity * item.price;
   });

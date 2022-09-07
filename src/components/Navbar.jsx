@@ -8,14 +8,14 @@ function Navbar() {
   const { cart } = useContext(cartContext);
   let quantityInCart = 0;
   cart.map((item) => {
-    quantityInCart += item.quantity;
+    return (quantityInCart += item.quantity);
   });
 
   return (
     <nav className="navbar navbar-expand-lg bg-light fixed-top">
       <div className="container-fluid container" id="nav-fluid">
         <Link className="navbar-brand" to="/">
-          <img className="logo" src="images/antlers.png"></img>
+          <img className="logo" src="images/antlers.png" alt="logo"></img>
         </Link>
         <button
           className="navbar-toggler"
@@ -87,7 +87,11 @@ function Navbar() {
 
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
-                <img className="cartIcon" src="images/cart.png"></img>
+                <img
+                  className="cartIcon"
+                  src="images/cart.png"
+                  alt="shopping cart"
+                ></img>
               </Link>
             </li>
             <div className="itemsInCart">
