@@ -10,12 +10,16 @@ export function LogProvider({ children }) {
     setLog(true);
   }
 
+  function logOut() {
+    setLog(false);
+  }
+
   function printUser(email) {
     setUser(email);
   }
 
   return (
-    <logContext.Provider value={{ log, user, Log, printUser }}>
+    <logContext.Provider value={{ log, user, Log, printUser, logOut }}>
       {children}
     </logContext.Provider>
   );

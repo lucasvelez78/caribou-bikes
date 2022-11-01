@@ -13,12 +13,54 @@
   height: 45px;
 }
 
-.cartIcon {
+.navigation-bar {
+  font-family: "Quicksand", sans-serif;
+  background-color: #e7e6ec;
+  min-height: 9vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+}
+
+.navigation-bar ul {
+  display: flex;
+  list-style: none;
+  align-items: left;
+  padding-top: 15px;
+}
+
+.navigation-link {
+  font-size: 17px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #1b1c1d;
+  margin: 0 20px;
+}
+
+.navigation-links.active {
+  transform: translateX(0%);
+}
+
+.navigation-link:hover {
+  color: #003865;
+}
+
+.nav-cart {
+  display: flex;
+}
+
+.cart-icon {
   width: 30px;
 }
 
-.itemsInCart {
-  margin-left: -10px;
+.items-in-cart {
+  margin-left: 2px;
+  margin-top: -10px;
   color: #ef5b0c;
 }
 
@@ -35,11 +77,54 @@
   margin: 0 5px;
 }
 
+.log-link {
+  display: flex;
+  align-items: center;
+}
+
 .name-logged {
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  padding-top: 8px;
+}
+
+.logOut-btn {
+  background-color: #e7e6ec;
+  border: none;
+}
+
+.Dropdown-menu {
+  position: absolute;
+  flex-direction: column;
+  padding: 0;
+  top: 7vh;
+  left: 38%;
+  width: 170px;
+  z-index: 100;
+  background-color: #e7e6ec;
+  align-items: center;
+  text-align: center;
+}
+
+.Dropdown-link {
+  width: 100%;
+  padding: 5px 0;
+  text-decoration: none;
+  color: #1b1c1d;
+}
+
+.Dropdown-link:hover {
+  color: #e7e6ec;
+  background-color: #ef5b0c;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile {
+  display: block;
 }
 
 /* ----------------------------------  landing  ---------------------------------- */
@@ -53,6 +138,7 @@
   height: 750px;
   position: relative;
   color: white;
+  box-sizing: content-box;
 }
 
 .road {
@@ -64,7 +150,7 @@
   height: 800px;
   position: relative;
   color: black;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .mountain {
@@ -76,7 +162,7 @@
   height: 800px;
   position: relative;
   color: black;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .urban {
@@ -88,7 +174,7 @@
   height: 800px;
   position: relative;
   color: black;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .gravel {
@@ -100,7 +186,7 @@
   height: 800px;
   position: relative;
   color: black;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .ebike {
@@ -112,7 +198,7 @@
   height: 800px;
   position: relative;
   color: black;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .presentationBox {
@@ -128,21 +214,20 @@
 }
 
 .presentationBoxHome {
-  position: relative;
-  left: 760px;
-  top: 260px;
+  display: block;
   opacity: 0.6;
-  justify-content: right;
-  padding: 30px;
+
   text-align: right;
-  width: 600px;
+  width: 100%;
+  padding-top: 18%;
+  padding-left: 45%;
+  padding-right: 8%;
 }
 
 .titleBox {
   font-family: "Bodoni Moda", serif;
   font-size: 3rem;
   margin-bottom: 20px;
-  margin-right: 30px;
 }
 
 .contentBox {
@@ -243,6 +328,7 @@
   position: relative;
   align-items: center;
   padding: 10rem;
+  padding-top: 8rem;
   display: flex;
   background-color: #efefef;
   width: 100%;
@@ -258,8 +344,9 @@
 .itemView-right {
   width: 30%;
   position: absolute;
-  top: 9.4rem;
+  top: 9rem;
   right: 9rem;
+  margin-top: -10px;
 }
 
 .itemView-description {
@@ -365,6 +452,7 @@ footer {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
 }
 
 .itemsList {
@@ -724,6 +812,7 @@ textarea {
 @media screen and (max-width: 1200px) {
   .itemView {
     padding-top: 80px;
+    padding-left: 30px;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -738,15 +827,16 @@ textarea {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
   }
 
   .itemView-right {
-    width: 100%;
+    width: 80%;
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: -120px auto 80px 180px;
+    left: 50px;
+    top: 30px;
   }
 
   .priceItemDetail {
@@ -770,6 +860,22 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
+  .itemView-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .itemView-right {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 30px;
+    top: 30px;
+  }
+
   .contact-section-wrapper {
     flex-direction: column;
     text-align: center;
@@ -798,5 +904,56 @@ textarea {
 
   textarea {
     max-width: 142%;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .navigation-links {
+    position: absolute;
+    height: 24vh;
+    width: 100%;
+    left: 0px;
+    top: 7vh;
+    background-color: #e7e6ec;
+    z-index: 3;
+    flex-direction: column;
+    transform: translateX(100%);
+  }
+
+  .navLink {
+    padding: 10px;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .Dropdown-menu {
+    position: absolute;
+    flex-direction: column;
+    padding: 0;
+    top: 4vh;
+    left: 22vh;
+    width: 170px;
+    z-index: 100;
+    background-color: #d8d7dd;
+    align-items: center;
+    text-align: center;
+  }
+
+  .shopDetailBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summary {
+    width: 70%;
+    margin-bottom: 10px;
   }
 }

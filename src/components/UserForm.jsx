@@ -1,6 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import firestoreDB from "../services/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  writeBatch,
+  getDocs,
+  query,
+  where,
+  documentId,
+  docs,
+} from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { orderContext } from "../store/orderContext";
 import { cartContext } from "../store/cartContext";
@@ -29,6 +38,27 @@ function UserForm({ inCart, total }) {
     const collectionRef = collection(firestoreDB, "purchaseOrders");
     const docRef = await addDoc(collectionRef, purchaseOrder);
     loadOrderId(docRef.id);
+
+    const collectionBikesRef = collection(firestoreDB, "bicycles");
+    const arraysId = inCart.map((item) => item.id);
+    const q = query(collectionBikesRef, where(documentId(), "in", arraysId));
+
+    let batch = writeBatch(firestoreDB);
+
+    getDocs(q).then((response) => {
+      response.docs.forEach((doc) => {
+        const itemToUpdate = inCart.find((prod) => prod.id === doc.id);
+
+        if (doc.data().stock >= itemToUpdate.quantity) {
+          batch.update(doc.ref, {
+            stock: doc.data().stock - itemToUpdate.quantity,
+          });
+        }
+        batch.commit();
+        console.log("commit");
+      });
+    });
+
     navigate("/success");
     clearCart();
   }

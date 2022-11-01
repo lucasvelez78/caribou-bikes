@@ -56,7 +56,7 @@ function ItemList(props) {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1350,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -65,7 +65,7 @@ function ItemList(props) {
         },
       },
       {
-        breakpoint: 720,
+        breakpoint: 915,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
