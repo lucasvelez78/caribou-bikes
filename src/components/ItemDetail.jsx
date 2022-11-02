@@ -25,7 +25,7 @@ function ItemDetail() {
     getProducts().then((res) => {
       setData(res.find((doc) => doc.id === bikeId));
     });
-  }, []);
+  }, [bikeId]);
 
   function handleAdd(count) {
     addToCart(data, count);

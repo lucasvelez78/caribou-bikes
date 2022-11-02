@@ -15,7 +15,7 @@ function Order() {
       setOrder(doc.data());
       setLoading(false);
     });
-  }, []);
+  }, [orderId]);
 
   if (loading) return <Loader />;
 

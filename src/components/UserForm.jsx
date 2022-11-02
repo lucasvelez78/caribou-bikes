@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import firestoreDB from "../services/firebase";
 import {
   addDoc,
@@ -8,7 +8,6 @@ import {
   query,
   where,
   documentId,
-  docs,
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { orderContext } from "../store/orderContext";

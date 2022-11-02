@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import Dropdown from "./Dropdown";
 import { cartContext } from "../store/cartContext";

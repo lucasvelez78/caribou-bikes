@@ -11,7 +11,7 @@ export function MenuProvider({ children }) {
   }
 
   function HideMenu() {
-    setMenu(!menu);
+    setMenu(false);
     setBurger(false);
   }
 
