@@ -473,16 +473,31 @@ footer {
 }
 
 .itemInCart img {
-  width: 120px;
-  height: 90px;
+  width: 260px;
   margin-right: 20px;
   margin-bottom: 10px;
 }
 
-.itemInCartChild {
+.itemDescription {
+  width: 220px;
+}
+
+.itemInCartReference {
   margin: 0 30px;
-  width: 70px;
-  display: flex;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.itemInCartChild {
+  margin: 10px 30px;
+  width: 110px;
+}
+
+.price {
+  color: #3ccf4e;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .itemInCartChildProduct {
@@ -498,12 +513,14 @@ footer {
 
 .lastItemInCartChild {
   margin-right: 20px;
+  margin-top: 0;
 }
 
 .delete {
-  margin: 0 10px 0 50px;
   cursor: pointer;
+  color: #ef5b0c;
 }
+
 .summary {
   background-color: #b9b7b7;
   width: 30%;
@@ -523,11 +540,19 @@ footer {
 
 .totalPriceBox {
   margin-top: 30px;
+  margin-bottom: 50px;
   justify-content: space-between;
 }
 
 .totalPrice {
   margin-left: 30px;
+}
+
+.checkOutBox {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
 }
 
 .checkOutBoxBtn {
@@ -536,7 +561,7 @@ footer {
 }
 
 #checkoutBtn {
-  background-color: #ef5b0c;
+  background-color: #3ccf4e;
   color: white;
   border-radius: 4px;
   left: 20px;
@@ -950,6 +975,15 @@ textarea {
   .shopDetailBox {
     flex-direction: column;
     align-items: center;
+    width: 98%;
+  }
+
+  .itemInCart {
+    flex-direction: column;
+  }
+
+  .totalPrice {
+    margin-top: 0;
   }
 
   .summary {

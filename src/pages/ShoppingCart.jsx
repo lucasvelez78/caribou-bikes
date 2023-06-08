@@ -58,10 +58,12 @@ function ShoppingCart() {
             <div> TOTAL PRICE: </div>
             <div className="costSummary totalPrice"> ${totalCost + 20} </div>
           </div>
-          <div className="checkOutBoxBtn">
-            <button className="btn" id="checkoutBtn" onClick={handleClick}>
-              Buy
-            </button>
+          <div className="checkOutBox">
+            <div className="checkOutBoxBtn">
+              <button className="btn" id="checkoutBtn" onClick={handleClick}>
+                Buy
+              </button>
+            </div>
           </div>
         </div>
       </div>

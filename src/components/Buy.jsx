@@ -13,17 +13,21 @@ function Buy(props) {
 
   return (
     <div className="itemInCart">
-      <img src={props.image} alt="bicycle"></img>
-      <p className="itemInCartChild">{props.reference}</p>
-      <div className="itemInCartChild">
-        <p>{quantity}</p>
+      <div>
+        <img src={props.image} alt="bicycle"></img>
       </div>
-      <div className="itemInCartChild lastItemInCartChild">
-        <p> ${subtotal} </p>
-        <p onClick={handleDelete} className="delete">
-          {" "}
-          x{" "}
-        </p>
+      <div className="itemDescription">
+        <p className="itemInCartReference">{props.reference}</p>
+        <div className="itemInCartChild">
+          <p>Quantity: {quantity}</p>
+        </div>
+        <div className="itemInCartChild lastItemInCartChild">
+          <p className="price"> ${subtotal} </p>
+          <p onClick={handleDelete} className="delete">
+            {" "}
+            Remove{" "}
+          </p>
+        </div>
       </div>
     </div>
   );
